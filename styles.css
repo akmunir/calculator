@@ -31,94 +31,16 @@ button {
     margin: 10px;
     font-size: x-large;
 }
-.calc-clear {
-    grid-row: 2;
+
+.double {
     grid-column: span 2;
 }
-.calc-del {
-    grid-row: 2;
-}
 
-.calc-division 
-{
-    background-color: #df974c;
-    color: white;
-    grid-row: 2;
-    grid-column: 4;
-}
-
-.calc-7 {
-    grid-row: 3 / 3;
-    grid-column: 1 / 1;
-}
-
-.calc-8 {
-    grid-row: 3;
-    grid-column: 2;
-}
-
-.calc-9 {
-    grid-row: 3;
-    grid-column: 3;;
-}
-
-.calc-multiply {
-    color: white;
-    background-color: #df974c;
-    grid-row: 3;
-    grid-column: 4;
-}
-
-.calc-4 {
-    grid-row: 4;
-    grid-column: 1;
-}
-
-.calc-5 {
-    grid-row: 4;
-    grid-column: 2;
-}
-
-.calc-6 {
-    grid-row: 4;
-    grid-column: 3;
-}
-.calc-subtract {
-    color: white;
-    background-color: #df974c;
-    grid-row: 4;
-    grid-column: 4;
-}
-
-.calc-1 {
-    grid-row: 5;
-    grid-column: 1;
-}
-
-.calc-2 {
-    grid-row:5;
-    grid-column: 2;
-}
-
-.calc-3 {
-    grid-row:5;
-    grid-column: 3;
-}
-
-.calc-add {
-    color: white;
-    background-color: #df974c;
-    grid-row:5;
-    grid-column: 4;
-}
-
-.calc-0 {
-    grid-row:6;
+.triple {
     grid-column: span 3;
 }
 
-.calc-equals {
+.operator {
     color: white;
     background-color: #df974c;
-    grid-row: 6;
 }
