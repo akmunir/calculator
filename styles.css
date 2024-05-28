@@ -3,12 +3,21 @@
 }
 body {
     margin: 0px;
+    box-sizing: border-box;
+}
+
+.calc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 .calc-container{
     display: grid;
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(4, fr);
     border: black solid 1px;
+    gap: 2px;
     width:40vh;
     height: 55vh;
     background-color: black;
@@ -42,12 +51,19 @@ button {
     grid-column: span 3;
 }
 
-.operator, .compute{
+.operator {
+    background-color: #3f3f3f;
+}
+.compute{
     color: white;
-    background-color: #df974c;
+    background-color: #3f3f3f;
+}
+.clear {
+    background-color: #ff5e00;
 }
 
 .del {
     font-size: 25px;
     font-weight: 1000;
+    background-color: #ff5e00;
 }
