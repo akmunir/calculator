@@ -9,7 +9,18 @@
 document
 .querySelector(".calc-container")
 .addEventListener("click", function(event)
-{
+{   if (event.target.classList.contains("operator") 
+        || event.target.classList.contains("compute") 
+        || event.target.classList.contains("clear")
+        || event.target.classList.contains("del"))
+    {
+        console.log("cleano aa");
+        if (currentInput1 === 0 && currentInput2 == 0)
+            {
+                 return;
+            }
+           
+    }
     if (event.target.classList.contains("operator"))
     {
         if (currentInput1 === 0) 
@@ -31,17 +42,37 @@ document
             currentInput1 = 0;
             currentInput2 = 0;
         }
-        else
+        else 
             ans = currentInput1 / currentInput2;
-        currentOutput.innerText = ans;
-
-        
+        currentOutput.innerText = ans;   
     }
+    else if (event.target.classList.contains("clear"))
+        {
+            console.log("cleared");
+            ans = 0; 
+            currentInput1 = 0;
+            currentInput2 = 0;
+            currentOperator = "";
+            currentOutput.innerText = ans;
+        }
     else if (flag)
     {
         currentInput2 *= 10;
         currentInput2 += Number(event.target.innerText);
         currentOutput.innerText = currentInput2;
+    } else if(event.target.classList.contains("del"))
+    {
+        if (flag) {
+            currentInput2 = Math.floor(currentInput2 / 10);
+            currentOutput.innerText = currentInput2;
+        }  
+        else {
+            currentInput1 = Math.floor(currentInput1 / 10);
+            currentOutput.innerText = currentInput1;
+        }
+
+            
+        
     }
     else 
     {

@@ -44,3 +44,8 @@ button {
     color: white;
     background-color: #df974c;
 }
+
+.del {
+    font-size: 25px;
+    font-weight: 1000;
+}
