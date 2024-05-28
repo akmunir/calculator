@@ -11,6 +11,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    
+    
 }
 .calc-container{
     display: grid;
@@ -53,6 +55,7 @@ button {
 
 .operator {
     background-color: #3f3f3f;
+    color: white;
 }
 .compute{
     color: white;
