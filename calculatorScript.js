@@ -107,3 +107,17 @@ function evaluateDigit(target) {
 function isDigit(target) {
     return /^\d$/.test(target);
 }
+
+document.addEventListener("keydown", function (event) {
+    const key = event.key;
+    if (isDigit(key))
+        evaluateDigit(key);
+    else if (key === "+" || key === "-" || key === "*" || key === "/")
+        evaluateOperator(key === "*" ? "x" : key);
+    else if (key === "Enter" || key == "=")
+        compute();
+    else if (key === "Backspace")
+        deletion();
+    else if (key == "c" || key == "Escape")
+        clearCalculator();
+});
