@@ -17,13 +17,11 @@ document
         || target.classList.contains("compute") 
         || target.classList.contains("del"))
     {
-        if (currentInput1 === 0 && currentInput2 === 0)
-            return;
            
     }
     if (target.classList.contains("operator"))
     {
-        checkOperator(target.innerText);
+        evaluateOperator(target.innerText);
     }
     else if (target.classList.contains("compute"))
     {
@@ -37,17 +35,19 @@ document
     {
         deletion();
     } else if (isDigit(target.innerText)) {
-        handleDigit(target.innerText);
+        evaluateDigit(target.innerText);
     }
     
 });
 
-function checkOperator(operator) {
-    if (currentInput1 === 0 && ans !== 0) 
-        currentInput1 = ans;  
+function evaluateOperator(operator) {
+    if (currentInput1 === 0 && ans !== 0)
+        {
+            currentInput1 = ans;
+            isNewInput = true;
+        }
     currentOutput.innerText = " ";
-    isNewInput = true;
-    currentOperator = event.target.innerText;
+    currentOperator = operator;
 }
 
 function compute() {
@@ -57,10 +57,6 @@ function compute() {
         ans = currentInput1 - currentInput2;
     else if (currentOperator === "x") {
         ans = currentInput1 * currentInput2;
-        isNewInput = false;
-        currentOperator = "";
-        currentInput1 = 0;
-        currentInput2 = 0;
     }
     else 
     {
@@ -70,7 +66,11 @@ function compute() {
         } else              
             ans = currentInput1 / currentInput2;
     }
-    currentOutput.innerText = ans;   
+        currentOutput.innerText = ans;  
+        isNewInput = false;
+        currentOperator = "";
+        currentInput1 = 0;
+        currentInput2 = 0; 
 }
 
 function clearCalculator() {
@@ -79,6 +79,7 @@ function clearCalculator() {
     currentInput2 = 0;
     currentOperator = "";
     currentOutput.innerText = ans;
+    isNewInput = false;
 }
 
 function deletion() {
@@ -92,13 +93,14 @@ function deletion() {
     }
 }
 
-function handleDigit(target) {
+function evaluateDigit(target) {
     if (isNewInput) {
         currentInput2 = (currentInput2 * 10) + Number(target);
         currentOutput.innerText = currentInput2;
     } else {
         currentInput1 = (currentInput1 * 10) + Number(target);
         currentOutput.innerText = currentInput1;
+        isNewInput = true;
     }
 }
 
