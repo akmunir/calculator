@@ -37,6 +37,7 @@ button {
     background-color: black;
     grid-column: span 4;
     align-items: center;
+    overflow: hidden;
 }
 
 .output {
