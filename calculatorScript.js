@@ -46,6 +46,7 @@ function evaluateOperator(operator) {
             currentInput1 = ans;
             isNewInput = true;
         }
+    isNewInput = true;
     currentOutput.innerText = " ";
     currentOperator = operator;
 }
@@ -61,7 +62,7 @@ function compute() {
     else 
     {
         if (currentInput2 === 0) {
-            currentOutput.innerText = "invalid";
+            currentOutput.innerText = "Error";
             return;
         } else              
             ans = currentInput1 / currentInput2;
@@ -83,11 +84,14 @@ function clearCalculator() {
 }
 
 function deletion() {
-    if (isNewInput) {
+    if (ans !== 0) {
+        ans = Math.floor(ans / 10);
+       currentOutput.innerText = ans;
+    }  
+    else if (isNewInput) {
         currentInput2 = Math.floor(currentInput2 / 10);
         currentOutput.innerText = currentInput2;
-    }  
-    else {
+    } else {
         currentInput1 = Math.floor(currentInput1 / 10);
         currentOutput.innerText = currentInput1;
     }
@@ -100,7 +104,6 @@ function evaluateDigit(target) {
     } else {
         currentInput1 = (currentInput1 * 10) + Number(target);
         currentOutput.innerText = currentInput1;
-        isNewInput = true;
     }
 }
 
